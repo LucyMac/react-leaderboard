@@ -7,12 +7,12 @@ class App extends Component {
     super(props);
     this.state = {
         data: [],
-        sortedByRecent: true
+        sortedByRecent: false
     }
 }
 
   componentDidMount() {
-    this.sortByRecent();
+    this.sortByTotal();
   }
 
   sortByRecent() {
