@@ -24,11 +24,15 @@ class App extends Component {
   }
 
   sortByRecent() {
+    // Fix this to expand selection. Currently sorting one column independently.
     this.state.data.sort((a, b) => a.recent > b.recent ? 1 : -1);
+    console.log('sorting by recent')
   }
 
   sortByTotal() {
+    // Fix this to expand selection. Currently sorting one column independently.
     this.state.data.sort((a, b) => a.alltime > b.alltime ? 1 : -1);
+    console.log('sorting by total')
   }
 
   render() {

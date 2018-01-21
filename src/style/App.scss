@@ -23,24 +23,33 @@
 
 .leaderboard {
   padding: 20px 50px;
+  
+  &__header,
+  &__entry {
+    display: flex;
+    border-bottom: 1px solid #c2dd2b;
+  
+    p {
+      float: left;
+      text-align: left;
+      width: 25%;
+    }
+  }
+
+  &__header {
+    font-weight: bold;
+    border-width: 2px;
+    color: #c2dd2b;
+    text-transform: uppercase;
+  }
+
+  &__recentPoints,
+  &__totalPoints {
+     cursor: pointer;
+  }
 }
-.leaderboard__header p,
-.leaderboard__entry p {
-  float: left;
-  text-align: left;
-  width: 25%;
-}
+
 ul {
   padding-left: 0;
 }
-.leaderboard__header,
-.leaderboard__entry {
-  display: flex;
-  border-bottom: 1px solid #c2dd2b;
-}
-.leaderboard__header {
-  font-weight: bold;
-  border-width: 2px;
-  color: #c2dd2b;
-  text-transform: uppercase;
-}
+

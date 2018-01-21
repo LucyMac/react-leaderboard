@@ -18,23 +18,20 @@
 /*  Leaderboard  */
 .leaderboard {
   padding: 20px 50px; }
-
-.leaderboard__header p,
-.leaderboard__entry p {
-  float: left;
-  text-align: left;
-  width: 25%; }
+  .leaderboard__header, .leaderboard__entry {
+    display: flex;
+    border-bottom: 1px solid #c2dd2b; }
+    .leaderboard__header p, .leaderboard__entry p {
+      float: left;
+      text-align: left;
+      width: 25%; }
+  .leaderboard__header {
+    font-weight: bold;
+    border-width: 2px;
+    color: #c2dd2b;
+    text-transform: uppercase; }
+  .leaderboard__recentPoints, .leaderboard__totalPoints {
+    cursor: pointer; }
 
 ul {
   padding-left: 0; }
-
-.leaderboard__header,
-.leaderboard__entry {
-  display: flex;
-  border-bottom: 1px solid #c2dd2b; }
-
-.leaderboard__header {
-  font-weight: bold;
-  border-width: 2px;
-  color: #c2dd2b;
-  text-transform: uppercase; }
