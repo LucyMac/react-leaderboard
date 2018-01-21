@@ -6,33 +6,35 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        data: []
+        data: [],
+        sortedByRecent: true
     }
 }
 
-  componentWillMount() {
-      // Load json file and set it to the state
-      fetch('https://fcctop100.herokuapp.com/api/fccusers/top/recent')
-      .then((resp) => resp.json())
-      .then((data) => {
-          this.setState({data: data});
-      });
-  }
-
   componentDidMount() {
-    this.sortByTotal();
+    this.sortByRecent();
   }
 
   sortByRecent() {
-    // Fix this to expand selection. Currently sorting one column independently.
-    this.state.data.sort((a, b) => a.recent > b.recent ? 1 : -1);
-    console.log('sorting by recent')
+    fetch('https://fcctop100.herokuapp.com/api/fccusers/top/recent')
+    .then((resp) => resp.json())
+    .then((data) => {
+        this.setState({
+          data: data,
+          sortedByRecent: true
+        });
+    });
   }
 
   sortByTotal() {
-    // Fix this to expand selection. Currently sorting one column independently.
-    this.state.data.sort((a, b) => a.alltime > b.alltime ? 1 : -1);
-    console.log('sorting by total')
+    fetch('https://fcctop100.herokuapp.com/api/fccusers/top/alltime')
+    .then((resp) => resp.json())
+    .then((data) => {
+        this.setState({
+          data: data,
+          sortedByRecent: false
+        });
+    });
   }
 
   render() {
@@ -46,8 +48,14 @@ class App extends Component {
           <div className="leaderboard__header">
             <p className="leaderboard__rank">Rank</p>
             <p className="leaderboard__name">Name</p>
-            <p className="leaderboard__recentPoints" onClick={this.sortByRecent.bind(this)}>Points in last 30 days</p>
-            <p className="leaderboard__totalPoints" onClick={this.sortByTotal.bind(this)}>Total points</p>
+            <p className={"leaderboard__recentPoints " + (this.state.sortedByRecent ? 'underline' : '')}
+               onClick={this.sortByRecent.bind(this)}>
+                Points in last 30 days
+            </p>
+            <p className={"leaderboard__totalPoints " + (this.state.sortedByRecent ? '' : 'underline')}
+               onClick={this.sortByTotal.bind(this)}>
+                Total points
+            </p>
           </div>
           <EntryList entries={this.state.data} />
         </section>
