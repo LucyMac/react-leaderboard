@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: rgb(6, 15, 97);
+  height: 100px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+/*  Leaderboard  */
+
+.leaderboard {
+  padding: 20px 50px;
+}
+.leaderboard__header p,
+.leaderboard__entry p {
+  float: left;
+  text-align: left;
+  width: 25%;
+}
+ul {
+  padding-left: 0;
+}
+.leaderboard__header,
+.leaderboard__entry {
+  display: flex;
+  /* justify-content: space-evenly; */
+  border-bottom: 1px solid #c2dd2b;
+}
+.leaderboard__header {
+  font-weight: bold;
+  border-width: 2px;
+  color: #c2dd2b;
+  text-transform: uppercase;
+}
